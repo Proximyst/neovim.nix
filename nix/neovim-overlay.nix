@@ -30,8 +30,33 @@ let
   ];
 
   extraPackages = with pkgs; [
-    lua-language-server
-    nil # nix LSP
+      # LSP pre-reqs
+      python3
+      nodejs_22
+      # LSPs
+      lua-language-server
+      rust-analyzer-nightly
+      (fenix.complete.withComponents [
+      "cargo"
+      "clippy"
+      "rust-src"
+      "rustc"
+      "rustfmt"
+    ])
+      # jsonls
+      vscode-langservers-extracted
+      nodePackages.bash-language-server
+      clang
+      dockerfile-language-server-nodejs
+      pyright
+      python311Packages.jedi-language-server
+      taplo
+      gopls
+      elixir-ls
+      nil
+
+      # Plugin pre-reqs
+      fzf
   ];
 in
 {

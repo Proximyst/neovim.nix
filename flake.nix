@@ -6,11 +6,13 @@
     flake-utils.url = "github:numtide/flake-utils";
     flake-compat.url = "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz";
 
-    # Plugins are defined by prefixing the names with "plugin-".
-    # This will automatically pick them up.
+        fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, flake-utils, ... } @ inputs:
+  outputs = { nixpkgs, fenix, flake-utils, ... } @ inputs:
     let
       neovimOverlay = import ./nix/neovim-overlay.nix {
         inherit inputs;
@@ -25,6 +27,7 @@
             inherit system;
             overlays = [
               neovimOverlay
+              fenix.overlays.default
             ];
           };
         in
