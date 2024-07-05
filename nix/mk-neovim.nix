@@ -52,9 +52,7 @@ let
     '';
 
     initPhase = ''
-      cp -r lua "$out"/lua
-      rm -r lua
-      cp -r * "$out"/nvim
+      cp -r * "$out"/lua
     '';
   };
 
