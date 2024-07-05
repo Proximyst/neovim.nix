@@ -138,4 +138,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- This will merge all files under `/lua/plugins/` into a spec.
-require('lazy').setup('plugins')
+require('lazy').setup({
+  spec = {
+    { import = 'plugins' },
+  },
+})

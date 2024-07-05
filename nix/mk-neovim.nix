@@ -43,28 +43,29 @@ let
   };
 
   nvimRtp = stdenv.mkDerivation {
-    name = "nvim-rtp";
+    name = "nvim-rtp-mari";
     src = lib.cleanSource ../nvim;
 
+    # We will copy in the init.lua into a file without this.
     buildPhase = ''
-      mkdir -p "$out"/nvim "$out"/lua
-      rm init.lua
-    '';
-
-    initPhase = ''
+      mkdir -p "$out"/lua
       cp -r * "$out"/lua
     '';
+
+#    initPhase = ''
+#      cp -r plugins "$out"
+#    '';
   };
 
   initLua = ''
     vim.loader.enable()
-    vim.opt.rtp:prepend('${nvimRtp}/lua')
+    --vim.opt.rtp:prepend('${nvimRtp}/plugins')
+    vim.opt.rtp:prepend('${nvimRtp}')
+    require('entrypoint')
   ''
-  # Wrap the init.lua file
-  + (builtins.readFile ../nvim/init.lua)
-  + ''
-    vim.opt.rtp:prepend('${nvimRtp}/nvim')
-  '';
+  ;
+#  # Wrap the init.lua file
+#  + (builtins.readFile ../nvim/init.lua);
 
   hasCustomAppName = appName != "nvim" && appName != null && appName != "";
   extraMakeWrapperArgs = builtins.concatStringsSep " " (
