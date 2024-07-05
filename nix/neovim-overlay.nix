@@ -49,7 +49,7 @@ let
     clang
     dockerfile-language-server-nodejs
     pyright
-    python311Packages.jedi-language-server
+    basedpyright
     taplo
     gopls
     elixir-ls

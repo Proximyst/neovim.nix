@@ -52,14 +52,7 @@ local servers = {
   -- Dockerfile / docker-compose
   dockerls = {},
   -- Python
-  pyright = {
-    settings = {
-      pyright = {
-        disableLanguageServices = true,
-      },
-    },
-  },
-  jedi_language_server = {},
+  basedpyright = {},
   -- TOML
   taplo = {},
   -- Golang
