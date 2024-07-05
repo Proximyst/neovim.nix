@@ -66,6 +66,8 @@ local servers = {
   gopls = {},
   -- Elixir
   elixirls = {},
+  -- Nix LS
+  nil_ls = {},
 }
 
 return {
