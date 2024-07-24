@@ -57,6 +57,7 @@ let
 
     # Plugin pre-reqs
     fzf
+    ripgrep
   ];
 in
 {
