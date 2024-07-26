@@ -188,7 +188,7 @@ return {
 
   {
     'neovim/nvim-lspconfig',
-    event = 'InsertEnter',
+    event = { 'InsertEnter', 'BufNewFile', 'BufReadPost' },
     config = function()
       local servers_keys = {}
       for k, _ in pairs(servers) do
