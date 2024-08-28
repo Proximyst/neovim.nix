@@ -47,6 +47,7 @@ let
     vscode-langservers-extracted
     nodePackages.bash-language-server
     clang
+    clang-tools
     dockerfile-language-server-nodejs
     pyright
     basedpyright
