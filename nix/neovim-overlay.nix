@@ -55,6 +55,7 @@ let
     gopls
     elixir-ls
     nil
+    haskellPackages.haskell-language-server
 
     # Plugin pre-reqs
     fzf

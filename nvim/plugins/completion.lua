@@ -61,6 +61,10 @@ local servers = {
   elixirls = {},
   -- Nix LS
   nil_ls = {},
+  -- Haskell LSP
+  hls = {
+    filetypes = { 'haskell', 'lhaskell', 'cabal' },
+  },
 }
 
 return {
